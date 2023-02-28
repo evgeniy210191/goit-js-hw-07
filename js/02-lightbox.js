@@ -10,7 +10,6 @@ function displayListGallery(listGallery) {
           <img class="gallery__image" 
             src="${item.preview}" 
             alt="${item.description}"
-           
           />
         </a>
       `;
@@ -20,13 +19,7 @@ function displayListGallery(listGallery) {
 
 const showGallery = displayListGallery(galleryItems);
 
-function openModal(event) {
-  event.preventDefault();
 
-  if (event.target.className !== 'gallery__image') {
-    return;
-  }
-  
 const lightbox = new SimpleLightbox('.gallery a', {
   captionPosition: 'bottom',
   scrollZoom: false,
@@ -35,12 +28,5 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: 'alt',
 });
-  console.log(lightbox);
-  
-lightbox.on('show.simplelightbox', function (e) {
-  document.querySelector('body').removeAttribute('style')
-});
-}
 
 galleryContainer.insertAdjacentHTML('beforeEnd', showGallery);
-galleryContainer.addEventListener('click', openModal);
