@@ -28,5 +28,5 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: 'alt',
 });
-
+lightbox.open();
 galleryContainer.insertAdjacentHTML('beforeEnd', showGallery);

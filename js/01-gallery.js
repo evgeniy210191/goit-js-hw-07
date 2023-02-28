@@ -38,23 +38,15 @@ function openModal(event) {
     </div>
 `);
   instance.show();
-  window.addEventListener('keydown', closeModalEsc);
+  window.addEventListener('keydown', function closeModalEsc(event) {
+    if (event.code === 'Escape') {
+      instance.close();
+      window.removeEventListener('keydown', closeModalEsc);
+    }
+  });
 }
 
-function closeModalEsc(event) {
-  event.preventDefault();
-  const box = document.querySelector('.basicLightbox');
 
-  if (!box) {
-    return;
-  }
-
-  if (event.code === 'Escape') {
-    box.classList.remove('basicLightbox--visible');
-    setTimeout(() => document.body.removeChild(box), 400);
-  }
-  window.removeEventListener('keydown', closeModalEsc);
-}
 
 galleryContainer.insertAdjacentHTML('beforeEnd', showGallery);
 galleryContainer.addEventListener('click', openModal);
