@@ -19,6 +19,7 @@ function displayListGallery(listGallery) {
 
 const showGallery = displayListGallery(galleryItems);
 
+galleryContainer.insertAdjacentHTML('beforeEnd', showGallery);
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionPosition: 'bottom',
@@ -29,4 +30,4 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
 });
 
-galleryContainer.insertAdjacentHTML('beforeEnd', showGallery);
+
